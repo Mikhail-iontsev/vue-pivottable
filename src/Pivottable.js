@@ -1,3 +1,5 @@
+import { h } from 'vue'
+
 import TableRenderer from './TableRenderer'
 import defaultProps from './helper/common'
 export default {
@@ -11,7 +13,7 @@ export default {
     }
   },
   methods: {
-    createPivottable (h) {
+    createPivottable () {
       const props = this.$props
       return h(this.rendererItems[this.rendererName], {
         props: Object.assign(
@@ -20,7 +22,7 @@ export default {
         )
       })
     },
-    createWrapperContainer (h) {
+    createWrapperContainer () {
       return h('div', {
         style: {
           display: 'block',
@@ -33,10 +35,10 @@ export default {
       ])
     }
   },
-  render (h) {
+  render () {
     return this.createWrapperContainer(h)
   },
-  renderError (h, error) {
+  renderError (error) {
     return this.renderError(h)
   }
 }

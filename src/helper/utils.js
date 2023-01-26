@@ -746,8 +746,6 @@ PivotData.forEachRecord = function (input, derivedAttributes, f) {
       return f(record)
     }
   }
-
-  // if it's a function, have it call us back
   if (typeof input === 'function') {
     return input(addRecord)
   } else if (Array.isArray(input)) {

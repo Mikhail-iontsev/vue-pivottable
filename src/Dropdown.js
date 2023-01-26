@@ -1,3 +1,5 @@
+import {h} from 'vue'
+
 export default {
   props: ['values', 'value'],
   model: {
@@ -12,7 +14,7 @@ export default {
       this.$emit('input', e.target.value)
     }
   },
-  render (h) {
+  render () {
     return h('select', {
       staticClass: ['pvtDropdown'],
       domProps: {

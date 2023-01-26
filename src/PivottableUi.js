@@ -2,6 +2,7 @@ import defaultProps from './helper/common'
 import DraggableAttribute from './DraggableAttribute'
 import Dropdown from './Dropdown'
 import Pivottable from './Pivottable'
+import { h } from 'vue'
 import TableRenderer from './TableRenderer'
 import { PivotData, getSort, sortAs, aggregators } from './helper/utils'
 import draggable from 'vuedraggable'
@@ -300,7 +301,7 @@ export default {
       this.materializedInput = materializedInput
       this.attrValues = attrValues
     },
-    makeDnDCell (items, onChange, classes, h) {
+    makeDnDCell (items, onChange, classes) {
       const scopedSlots = this.$scopedSlots.pvtAttr
       return h(draggable, {
         attrs: {
@@ -352,7 +353,7 @@ export default {
         })
       ])
     },
-    rendererCell (rendererName, h) {
+    rendererCell (rendererName) {
       return this.$slots.rendererCell
         ? h('td', {
           staticClass: ['pvtRenderers pvtVals pvtText']
@@ -375,7 +376,7 @@ export default {
           })
         ])
     },
-    aggregatorCell (aggregatorName, vals, h) {
+    aggregatorCell (aggregatorName, vals) {
       return this.$slots.aggregatorCell
         ? h('td', {
           staticClass: ['pvtVals pvtText']
@@ -436,7 +437,7 @@ export default {
             : undefined
         ])
     },
-    outputCell (props, isPlotlyRenderer, h) {
+    outputCell (props, isPlotlyRenderer) {
       return h('td', {
         staticClass: ['pvtOutput']
       },
@@ -450,7 +451,7 @@ export default {
       ])
     }
   },
-  render (h) {
+  render () {
     if (this.data.length < 1) return
     const outputScopedSlot = this.$scopedSlots.output
     const outputSlot = this.$slots.output
@@ -578,7 +579,7 @@ export default {
       ])
     ])
   },
-  renderError (h, error) {
+  renderError (error) {
     return this.uiRenderError(h)
   }
 }

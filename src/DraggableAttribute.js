@@ -1,4 +1,4 @@
-
+import {h} from 'vue'
 export default {
   name: 'draggable-attribute',
   props: {
@@ -231,7 +231,7 @@ export default {
       this.$emit('open:filterbox', { attribute, open })
     }
   },
-  render (h) {
+  render () {
     const filtered = Object.keys(this.valueFilter).length !== 0 ? 'pvtFilteredAttribute' : ''
     const pvtAttrScopedSlot = this.$scopedSlots.pvtAttr
     return h('li', {
